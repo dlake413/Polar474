@@ -33,7 +33,6 @@ app.get('/data/links', function(req,res){
     }
   }
   res.send(JSON.stringify([person,vehicle,edge]));
-  database.insertPeople(1, 'Dick');
 })
 
 app.get('/get_user', function(req, res){
@@ -54,9 +53,4 @@ app.get('/data/nodes', function(req, res){
   res.send(JSON.stringify(list_of_nodes));
 });
 
-var server = app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function () {
-
-  var host = server.address().address;
-  var port = server.address().port;
-
-});
+app.listen(80);
