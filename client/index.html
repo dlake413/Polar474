@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='js/angular.min.js'></script>
+    <script>
+    angular.module('myApp',[]).controller('myController', function($scope,$http){
+      $http.get('/data/nodes').success(function(res){
+        $scope.nodes = res;
+      });
+      $http.get('/data/links').success(function(res){
+        $scope.people = res[0]
+        $scope.vehicles = res[1]
+        $scope.edges = res[2]
+      });
+      
+    });
+    </script>
+  </head>
+  <body ng-app='myApp'>
+    <div ng-controller='myController'>
+      <div style='display:inline-block; vertical-align:top;'>
+        <h1>Edges</h1>
+        <ul>
+          <li ng-repeat='edge in edges'>
+            {{edge.id}} {{edge.label}}
+          </li>
+        </ul>
+      </div>
+      <div style='display:inline-block; vertical-align:top;'>
+        <h1>Vehicle</h1>
+        <ul>
+          <li ng-repeat='vehicle in vehicles'>
+            {{vehicle.id}} {{vehicle.label}}
+          </li>
+        </ul>
+      </div>
+      <div style='display:inline-block; vertical-align:top;'>
+        <h1>Crews</h1>
+        <ul>
+          <li ng-repeat='peep in people'>
+            {{peep.id}} {{peep.label}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
