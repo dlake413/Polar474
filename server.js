@@ -4,6 +4,8 @@ var nodes = require('./data.json');
 var template_dir = '/client/';
 var db = require('./dal.js')
 var app = express();
+var port = process.env.PORT || 8080 || 80;
+
 
 var database = new db.database();
 
@@ -53,4 +55,4 @@ app.get('/data/nodes', function(req, res){
   res.send(JSON.stringify(list_of_nodes));
 });
 
-app.listen(80);
+app.listen(port);
