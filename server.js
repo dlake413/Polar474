@@ -4,7 +4,7 @@ var nodes = require('./data.json');
 var template_dir = '/client/';
 var db = require('./dal.js')
 var app = express();
-
+var port = process.env.PORT || 80;
 var database = new db.database();
 
 app.use(express.static(__dirname + template_dir));
