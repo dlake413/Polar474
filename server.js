@@ -1,18 +1,25 @@
 var express = require('express');
 var path = require('path');
 var nodes = require('./data.json');
-var template_dir = '/client/';
-var db = require('./dal.js')
+var template_dir = '/client';
+var db = require('./dal.js');
+var ejs = require('ejs');
 var app = express();
 var port = process.env.PORT || 80;
-//var port = 3000;
-
 var database = new db.database();
 
-app.use(express.static(__dirname + template_dir));
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/'));
+
+console.log(__dirname);
+
+
+app.get('/edit', function(req, res) {
+  res.render('main.ejs');
+});
 
 app.get('/', function (req, res) {
-    res.sendfile('index.html');
+  res.render('index.ejs');
 });
 
 app.get('/data/links', function(req,res){

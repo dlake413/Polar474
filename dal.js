@@ -206,6 +206,4 @@ exports.database = function(){
 	this.database.query(sql);
 	return;
     }
-    
-    
 };
