@@ -10,7 +10,8 @@
       $http.get('/data/links').success(function(res){
         $scope.people = res[0]
         $scope.vehicles = res[1]
-        $scope.edges = res[2]
+        $scope.edges = res[2];
+    console.log(res[0]);
       });
       
     });
@@ -30,7 +31,7 @@
         <h1>Vehicle</h1>
         <ul>
           <li ng-repeat='vehicle in vehicles'>
-            {{vehicle.id}} {{vehicle.label}}
+            {{vehicle.node.id}} {{vehicle.node.label}}
           </li>
         </ul>
       </div>

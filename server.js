@@ -4,41 +4,60 @@ var nodes = require('./data.json');
 var template_dir = '/client/';
 var db = require('./dal.js')
 var app = express();
-var port = process.env.PORT || 8080 || 80;
-
+var port = process.env.PORT || 80;
+//var port = 3000;
 
 var database = new db.database();
 
 app.use(express.static(__dirname + template_dir));
 
 app.get('/', function (req, res) {
-  res.sendfile('index.html');
+    res.sendfile('index.html');
 });
 
 app.get('/data/links', function(req,res){
-  var person = [];
-  var vehicle = [];
-  var edge = [];
-  for(i in nodes.links){
-    var node = nodes.links[i];
-    var label = node['label'];
-    var doe = node['died on expedition'];
-    if(doe.length > 0 || label.length > 0){
-      if(doe == 'V'){
-        vehicle.push(node);
-      } else {
-        person.push(node);
-      }
+    var person = [];
+    var vehicle = [];
+    var edge = [];
+    for(i in nodes.links){
+	var node = nodes.links[i];
+	var label = node['label'];
+	var doe = node['died on expedition'];
+	if(doe.length > 0 || label.length > 0){
+	    if(doe == 'V'){
+		vehicle.push({'node':node});
+	    } else {
+		person.push(node);
+	    }
+	}
+	else {
+	    edge.push(node);
+	}
     }
-    else {
-      edge.push(node);
+    var n = nodes.nodes;
+    var list_of_nodes = {}
+    for(var i in n){
+	var node = n[i];
+	if(node.id in list_of_nodes){
+	    list_of_nodes[node.id].push(node);
+	} else {
+	    list_of_nodes[node.id] = [node];
+	}
     }
-  }
-  res.send(JSON.stringify([person,vehicle,edge]));
+
+    for(var i = 0; i < person.length; i++){
+	var p = person[i];
+	var s = p.source;
+	var t = p.target;	
+	p.source = list_of_nodes[s];
+	p.target = list_of_nodes[t];
+    }
+    res.send(JSON.stringify([person,vehicle,edge]));
 })
 
 app.get('/get_user', function(req, res){
-  
+    var peoples = database.selectPeopleByName();
+    res.send(JSON.stringify(peoples));
 })
 
 app.get('/data/nodes', function(req, res){
@@ -54,5 +73,7 @@ app.get('/data/nodes', function(req, res){
   }
   res.send(JSON.stringify(list_of_nodes));
 });
+
+console.log(port);
 
 app.listen(port);

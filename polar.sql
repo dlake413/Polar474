@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.40, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.43, for debian-linux-gnu (x86_64)
 --
--- Host: 0.0.0.0    Database: polar
+-- Host: localhost    Database: polar
 -- ------------------------------------------------------
--- Server version	5.5.40-0ubuntu0.14.04.1
+-- Server version	5.5.43-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,8 +29,8 @@ CREATE TABLE `crew_members` (
   `died_on_expedition` tinyint(4) DEFAULT NULL,
   KEY `cid` (`cid`),
   KEY `eid` (`eid`),
-  CONSTRAINT `crew_members_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `people` (`id`),
-  CONSTRAINT `crew_members_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `expedition` (`id`)
+  CONSTRAINT `crew_members_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `expedition` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `crew_members_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `people` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -141,6 +141,7 @@ CREATE TABLE `people` (
 
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
+INSERT INTO `people` VALUES (1,'Dick');
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-28 12:59:48
+-- Dump completed on 2015-05-05 12:51:54
