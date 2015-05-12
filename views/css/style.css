@@ -4,18 +4,17 @@ html {
 
 #data, #interface{
     display:inline-block;
-    height:500px;
+    height:700px;
     vertical-align:top;
+    border:1px solid #EEE;
 }
 
 #data {
     width:700px;
-    background-color:#FAFAFA;
 }
 
 #interface{
     width:400px;
-    background-color:#FAFAFA;
 }
 
 #tab_bar button {
@@ -24,11 +23,11 @@ html {
 
 .tab_form {
     display:none;
-    height:400px;
+    height:200px;
 }
 
 .active_tab {
-    border:1px solid black;
+    border:1px solid #EEE;
     display:block;
     
 }
