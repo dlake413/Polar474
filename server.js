@@ -5,7 +5,7 @@ var template_dir = '/client';
 var db = require('./dal.js');
 var ejs = require('ejs');
 var app = express();
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 8080;
 var database = new db.database();
 
 app.set('view engine', 'ejs');
