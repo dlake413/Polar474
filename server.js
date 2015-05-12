@@ -91,8 +91,6 @@ app.get('/get_user', function(req, res){
 	count2++;
     }
 
-    console.log(count+ " " + count2);
-
     var person = [];
     var vehicle = [];
     var edge = [];
@@ -113,7 +111,7 @@ app.get('/get_user', function(req, res){
 	    edge.push(node);
 	}
     }
-    for(var k = 0; k < vehicle.length; k++);
+    for(var k = 0; k < vehicle.length; k++){
 	var vec = vehicle[k].source;
 	var exp = vehicle[k].target;
 	//database.insertShips(vec.id,vec.name,'');
