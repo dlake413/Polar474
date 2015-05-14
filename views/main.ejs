@@ -1,42 +1,63 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css"> 
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-  </head>
+<head>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css" type="text/css"> 
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/react.js"></script>
+  <script src="js/JSXTransformer.js"></script>
+</head>
 
-  <body class = "container">
-    <div id = "data">
-      <h1>Data goes here</h1>
-      <script src="http://d3js.org/d3.v3.min.js"></script>
-    </div>
-    <div id = "interface">
-      <div id='tab_menu'>
-	<div id='tab_bar'>
-	  <button id='tab_1' class='tab_button'>Add Person</button>
-	  <button id='tab_2' class='tab_button'>Add Location</button>
-	  <button id='tab_3' class='tab_button'>Add Vehicle</button>
-	  <button id='tab_4' class='tab_button'>Set Expedition</button>
-	</div>
-	<form class='tab_form active_tab' id='tabcontent_1' name='personForm'>
-	  <h1>Add Person</h1>
-	  <input name="personName">
-	  <button class='form_submit' type='button'>Submit</button>
-	</form>
-	<form class='tab_form' id='tabcontent_2' name='locationForm'>
-	  <h1>Form2</h1>
-	</form>
-	<form class='tab_form' id='tabcontent_3' name='shipForm'>
-	  <h1>Form3</h1>
-	</form>
-	<form class='tab_form' id='tabcontent_4' name='expeditionForm'>
-	  <h1>Form4</h1>
-	</form>
+<body class = "container">
+  <div id = "data">
+    <h1>Data goes here</h1>
+  </div>
+  <div id = "interface">
+    <div id='tab_menu'>
+      <div id='tab_bar'>
+	<button id='tab_1' class='tab_button'>Add Person</button>
+	<button id='tab_2' class='tab_button'>Add Expedition</button>
+	<button id='tab_3' class='tab_button'>Add Location</button>
+	<button id='tab_4' class='tab_button'>Add Crew</button>
+        <button id='tab_5' class='tab_button'>Add Expedition Ship</button>
       </div>
+      <form class='tab_form active_tab' id='tabcontent_1' name='personForm'>
+	<h1>Form1</h1>
+	<div id = "content">
+      <script type="text/jsx;harmony=true" src = "input.jsx"></script>
+   </div>
+     </form>
+      <form class='tab_form' id='tabcontent_2' name='expeditionForm'>
+	<h1>Form2</h1>
+         <div id = "expedition">
+         <script type="text/jsx;harmony=true" src = "expedition.jsx"></script>
+         </div>
+      </form>
+      <form class='tab_form' id='tabcontent_3' name='locationForm'>
+	<h1>Form3</h1>
+          <div id = "location">
+      <script type="text/jsx;harmony=true" src = "location.jsx"></script>
+   </div>
+
+      </form>
+      <form class='tab_form' id='tabcontent_4' name='crewForm'>
+	<h1>Form4</h1>
+         <div id = "crew">
+      <script type="text/jsx;harmony=true" src = "crew.jsx"></script>
+   </div>
+
+      </form>
+
+     <form class='tab_form' id='tabcontent_5' name='expeditionShipForm'>
+        <h1>Form4</h1>
+         <div id = "expeditionship">
+      <script type="text/jsx;harmony=true" src = "expeditionship.jsx"></script>
+   </div>
+
+      </form>
     </div>
   </body>
 </html>

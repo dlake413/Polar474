@@ -65,5 +65,5 @@ var InputBox = React.createClass({
 
    React.render(
    <InputBox />, 
-   document.getElementById('tabcontent_1')
+   document.getElementById('content')
    );
