@@ -31,3 +31,19 @@ html {
     display:block;
     
 }
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+.ui-menu{
+    border-radius: 1px;
+    border: 1px solid #454545;
+    position: relative;
+    
+}

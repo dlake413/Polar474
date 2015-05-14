@@ -114,8 +114,6 @@ app.get('/get_user', function(req, res){
     for(var k = 0; k < vehicle.length; k++){
 	var vec = vehicle[k].source;
 	var exp = vehicle[k].target;
-	//database.insertShips(vec.id,vec.name,'');
-	//console.log(vec);
     }
 })
 
