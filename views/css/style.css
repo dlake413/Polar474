@@ -10,11 +10,12 @@ html {
 }
 
 #data {
-    width:700px;
+    width:calc(100% - 400px);
 }
 
 #interface{
     width:400px;
+
 }
 
 #tab_bar button {
@@ -23,7 +24,8 @@ html {
 
 .tab_form {
     display:none;
-    height:200px;
+    min-height:200px;
+    padding:10px;
 }
 
 .active_tab {
@@ -35,7 +37,9 @@ html {
 .node {
   stroke: #fff;
   stroke-width: 1.5px;
+  opacity:0.5;
 }
+
 .link {
   stroke: #999;
   stroke-opacity: .6;

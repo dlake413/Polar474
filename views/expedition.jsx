@@ -65,10 +65,10 @@ var InputBox = React.createClass({
         render: function() {
           return (
              <form className="personForm" onSubmit={this.handleSubmit}>
-                 <input type = "text" placeholder="Enter your name here.." ref="name"/>
-                 <input type = "text" placeholder="Enter a ID here..." ref="id"/>
-                 <input type = "text" placeholder="Enter a Source here..." ref="source"/>
-                 <input type = "text" placeholder="Enter a Destination here..." ref="destination"/>
+                 <input type = "text" placeholder="Enter your name here.." ref="name"/><br />
+                 <input type = "text" placeholder="Enter a ID here..." ref="id"/><br />
+                 <input type = "text" placeholder="Enter a Source here..." ref="source"/><br />
+                 <input type = "text" placeholder="Enter a Destination here..." ref="destination"/><br />
                  <input type= "submit" value="Submit!"/>
              </form>
           );
